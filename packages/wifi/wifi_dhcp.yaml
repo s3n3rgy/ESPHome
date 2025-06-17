@@ -5,7 +5,7 @@ wifi:
   power_save_mode: none
   ap:
     ssid: ${device_id}
-    password: ${pwd}
+    password: ${wifi_password}
     ap_timeout: 5min
 
 captive_portal:
