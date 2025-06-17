@@ -1,0 +1,29 @@
+#Study Presence Sensor
+#This yaml is designed to cut&paste into ESPHome Device Builder
+
+#substitutions, items specific for this project
+substituions:
+  device_id: study_presence
+  device_name: Study Presence
+  platform: esp32
+  board: esp32dev
+  #api_key: !secret study_presence_key
+  pwd: 12345678
+  log_level: none
+  log_baud_rate: '115200'
+  web_server_port: '80'
+
+
+
+#packages to load
+packages:
+  remote_package:
+    url: https://github.com/s3n3rgy/ESPHome
+    ref: master
+    files:
+      - packages/device_base.yaml
+      - wifi/wifi.yaml
+      - ota/ota.yaml
+      - logger/logger.yaml
+      - web/web_server.yaml
+  refresh: 30s
