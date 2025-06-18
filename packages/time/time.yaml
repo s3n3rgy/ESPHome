@@ -1,5 +1,2 @@
-substitutions:
-  time_platform: 192.168.0.122
-
 time:
   - platform: ${time_platform}
