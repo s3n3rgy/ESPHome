@@ -1,6 +1,9 @@
 #Study Presence Sensor HLJ-LD2410B
 #https://esphome.io/components/sensor/ld2410
 
+ld2410:
+  id: ld2410_radar
+  
 uart:
   tx_pin: ${uart_tx}
   rx_pin: ${uart_rx}
@@ -16,7 +19,6 @@ binary_sensor:
       name: Moving Target
     has_still_target:
       name: Still Target
-    ld2410_id: #specify ID if using multiple components
 
 sensor:
   - platform: ld2410
