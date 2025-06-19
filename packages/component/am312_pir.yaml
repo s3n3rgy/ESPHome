@@ -6,3 +6,5 @@ binary_sensor:
       number: ${pir_gpio}
     name: "PIR Sensor"
     device_class: motion
+    filters:
+      - delayed_off: 10s
