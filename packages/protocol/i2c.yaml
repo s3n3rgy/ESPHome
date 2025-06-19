@@ -1,0 +1,7 @@
+#include when using i2c sensors
+
+i2c:
+  - id: bus_a
+    sda: ${i2c_sda_pin}
+    scl: ${i2c_scl_pin}
+    scan: true
