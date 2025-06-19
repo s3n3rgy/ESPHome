@@ -1,19 +1,13 @@
 #BMP580 Temp and pressure sensor, use bmp581 platform
-i2c:
-  - id: "bmp580_i2c"
-    sda: ${i2c_sda_pin}
-    scl: ${i2c_scl_pin}
-    scan: true
- 
- 
+#include packages/protocol/i2c.yaml
 sensor:
   - platform: bmp581
-    i2c_id: bmp580_i2c
+    i2c_id: bus_a
     temperature:
       name: "Temperature"
       oversampling: 4x
     pressure:
       name: "Pressure"
       oversampling: 16x
-    address: ${bmp580_address}
-    update_interval: 60s 
+    address: 0x47    
+    update_interval: 60s  
