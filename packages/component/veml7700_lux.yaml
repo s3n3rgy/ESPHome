@@ -1,6 +1,7 @@
 #for VENL700 Light sensor
 #include packages/protocol/i2c.yaml
 
+sensor:
   - platform: veml7700
     i2c_id: bus_a
   #  address: ${vmel7700_address}
