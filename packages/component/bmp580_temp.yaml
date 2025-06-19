@@ -9,5 +9,5 @@ sensor:
     pressure:
       name: "Pressure"
       oversampling: 16x
-    address: 0x47    
+    address: ${bmp580_address}    
     update_interval: 60s  
