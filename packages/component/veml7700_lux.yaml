@@ -1,0 +1,11 @@
+#for VENL700 Light sensor
+#include packages/protocol/i2c.yaml
+
+  - platform: veml7700
+    i2c_id: bus_a
+    address: 0x10
+    update_interval: 60s
+    ambient_light: 
+      name: "Ambient light"
+    full_spectrum: 
+      name: "Full Spectrum"
