@@ -38,6 +38,7 @@ sensor:
     unit_of_measurement: °C
     device_class: TEMPERATURE
     update_interval: 60s
+    entity_category: "diagnostic"
     #Device RSSI
   - platform: wifi_signal
     name: RSSI
