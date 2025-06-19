@@ -3,7 +3,7 @@
 
   - platform: veml7700
     i2c_id: bus_a
-    address: 0x10
+    address: ${vmel7700_address}
     update_interval: 60s
     ambient_light: 
       name: "Ambient light"
