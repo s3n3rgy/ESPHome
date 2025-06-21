@@ -45,8 +45,8 @@ packages:
       - packages/text_sensor/wifi_info.yaml
       - packages/button/restart.yaml
       - packages/time/time.yaml
- #     - packages/protocol/i2c.yaml  #include when using any i2c sensors
- #     - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
- #     - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
- #     - packages/component/am312_pir.yaml #include with PIR Sensors
-      - packages/component/ld2410_radar.yaml
+      - packages/protocol/i2c.yaml  #include when using any i2c sensors
+      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
+      - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
+      - packages/component/am312_pir.yaml #include with PIR Sensors
+      - packages/component/ld2410_radar.yaml #LD2410 Radar
