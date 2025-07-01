@@ -19,7 +19,7 @@ sensor:
     accuracy_decimals: 0
     unit_of_measurement: Mhz
     lambda: |-
-      return (id(cpu_frequency));
+      id(cpu_speed) = ESP.getCpuFreqMHz();
     entity_category: "diagnostic"
     #Device Memory
   - platform: template
