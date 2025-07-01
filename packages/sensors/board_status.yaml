@@ -14,9 +14,9 @@ sensor:
     id: sys_uptime
     update_interval: 60s
     #Device CPU Speed
-  - platform: cpu_frequency
+  - platform: debug
     name: "ESP CPU Speed"
-    id: cpu_speed
+    id: cpu_frequency
     accuracy_decimals: 0
     unit_of_measurement: Mhz
     entity_category: "diagnostic"
