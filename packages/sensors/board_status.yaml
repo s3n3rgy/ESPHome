@@ -13,13 +13,13 @@ sensor:
     name: Uptime
     id: sys_uptime
     update_interval: 60s
-    #Device CPU Speed
-  - platform: debug
-    name: "ESP CPU Speed"
-    id: cpu_frequency
-    accuracy_decimals: 0
-    unit_of_measurement: Mhz
-    entity_category: "diagnostic"
+    #Device CPU Speed  - Not working
+#  - platform: debug
+#    name: "ESP CPU Speed"
+#    id: cpu_frequency
+#    accuracy_decimals: 0
+#    unit_of_measurement: Mhz
+#    entity_category: "diagnostic"
     #Device Memory
   - platform: template
     id: esp_memory
