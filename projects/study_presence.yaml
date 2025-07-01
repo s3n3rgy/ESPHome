@@ -1,6 +1,6 @@
 esphome:
-  name: esphome-web-345700
-  friendly_name: Study Presence
+  name: esphome-web-45e6ec
+  friendly_name: Study Presence V3
   min_version: 2025.5.0
   name_add_mac_suffix: false
 
@@ -23,9 +23,11 @@ substitutions:
   uart_rx: GPIO16 #Used for LD2410 Radar
   i2c_sda_pin: GPIO21 
   i2c_scl_pin: GPIO22
-  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
+#  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
+  bme680_address: "0x77" #Address of BME680 Temp Sensor.
   vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
   pir_gpio: "GPIO13"  #AM312 PIR motion sensor connected to
+
 
 #git repo
 packages:
@@ -46,7 +48,8 @@ packages:
       - packages/button/restart.yaml
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
-      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
+#      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
+      - packages/component/bme680_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
       - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
       - packages/component/am312_pir.yaml #include with PIR Sensors
       - packages/component/ld2410_radar.yaml #LD2410 Radar
