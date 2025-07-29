@@ -116,8 +116,8 @@ captive_portal:
 
 
 # MANDATORY disable logging via UART
-logger:
-  baud_rate: 0
+#logger:
+#  baud_rate: 0
 
 # Device Settings
 switch:
