@@ -15,8 +15,8 @@ substitutions:
   humanly_name: TCL Aircon
   uart_rx: GPIO1 #used for Aircon/uart_logger
   uart_tx: GPIO3 #used for Aircon/uart_logger
-  uart_rx2: GPIO16 #used for Presence Sensor
-  uart_tx2: GPIO17 #used for Presence Sensor
+#  uart_rx2: GPIO16 #used for Presence Sensor
+#  uart_tx2: GPIO17 #used for Presence Sensor
   receive_led: GPIO2
   transmit_led: GPIO2
  # log_level: none  #debug info warn error none
@@ -47,3 +47,4 @@ packages:
       - packages/time/time.yaml
 #      - packages/protocol/i2c.yaml  #include when using any i2c sensors
       - packages/component/tcl_aircon.yaml
+#      - packages/component/ld2410_radar.yaml #LD2410 Radar, connected but not working
