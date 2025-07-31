@@ -2,11 +2,20 @@ ld2410:
   id: ld2410_radar
   
 uart:
-  tx_pin: ${uart_tx2}
-  rx_pin: ${uart_rx2}
-  baud_rate: 256000
-  parity: NONE
-  stop_bits: 1
+  - id: uart_2
+    tx_pin: ${uart_tx2}
+    rx_pin: ${uart_rx2}
+    baud_rate: 256000
+    parity: NONE
+    stop_bits: 1
+
+# Testing multiple UARTS
+#uart:
+#  tx_pin: ${uart_tx2}
+#  rx_pin: ${uart_rx2}
+#  baud_rate: 256000
+#  parity: NONE
+#  stop_bits: 1
 
 #bluetooth (not sure how it works yet)
 #esp32_ble_tracker:
