@@ -1,5 +1,6 @@
 ld2410:
   id: ld2410_radar
+  uart_id: uart_2
   
 uart:
   - id: uart_2
