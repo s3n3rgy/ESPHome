@@ -1,3 +1,6 @@
+##LD2410 Motion and Presence Sensor
+# https://esphome.io/components/sensor/ld2410
+
 ld2410:
   id: ld2410_radar
   uart_id: uart_2
@@ -176,6 +179,8 @@ binary_sensor:
 #Exposes configuration and status sensors     
 sensor:
   - platform: ld2410
+    light:
+      name: Light ##Only works in Engineering mode. 0-255
     moving_distance:
       name: Radar Moving Distance
       id: moving_distance
