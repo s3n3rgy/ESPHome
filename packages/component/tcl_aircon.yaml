@@ -86,14 +86,23 @@ esphome:
         } else {
           id(${device_name}climate).set_force_mode_state(false);
         }
+#trying to get multiple UART's working
+#uart:
+#  baud_rate: 9600
+#  data_bits: 8
+#  parity: EVEN
+#  stop_bits: 1
+#  rx_pin: ${uart_rx}
+#  tx_pin: ${uart_tx}
 
 uart:
-  baud_rate: 9600
-  data_bits: 8
-  parity: EVEN
-  stop_bits: 1
-  rx_pin: ${uart_rx}
-  tx_pin: ${uart_tx}
+  - id: uart_1
+    baud_rate: 9600
+    data_bits: 8
+    parity: EVEN
+    stop_bits: 1
+    rx_pin: ${uart_rx}
+    tx_pin: ${uart_tx}
 
 api:
   encryption:
