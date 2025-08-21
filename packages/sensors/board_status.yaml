@@ -1,11 +1,5 @@
 ##Hardware State
 
-#globals:
-#  - id: cpu_speed
- #   type: int
- #   restore_value: no
- #   initial_value: "0"
-
 #Exposes configuration and status sensors
 sensor:
     #Device UPTIME
@@ -13,13 +7,7 @@ sensor:
     name: Uptime
     id: sys_uptime
     update_interval: 60s
-    #Device CPU Speed  - Not working
-#  - platform: debug
-#    name: "ESP CPU Speed"
-#    id: cpu_frequency
-#    accuracy_decimals: 0
-#    unit_of_measurement: Mhz
-#    entity_category: "diagnostic"
+
     #Device Memory
   - platform: template
     id: esp_memory
@@ -29,17 +17,8 @@ sensor:
     unit_of_measurement: "kB"
     state_class: measurement
     entity_category: "diagnostic"
-    #Device Temperature - Not woking for framework ESP-IDF
-#  - platform: template
-#    id: sys_esp_temperature
-#    name: ESP Temperature
-#    lambda: return temperatureRead();
-#    unit_of_measurement: "°C"
-#    state_class: measurement
-#    device_class: TEMPERATURE
-#    update_interval: 60s
-#    entity_category: "diagnostic"
 
+    #Device Temperature
   - platform: internal_temperature
     name: ESP Temperature   
     unit_of_measurement: "°C"
