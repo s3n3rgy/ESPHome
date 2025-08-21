@@ -29,16 +29,23 @@ sensor:
     unit_of_measurement: "kB"
     state_class: measurement
     entity_category: "diagnostic"
-    #Device Temperature
-  - platform: template
-    id: sys_esp_temperature
-    name: ESP Temperature
-    lambda: return temperatureRead();
+    #Device Temperature - Not woking for framework ESP-IDF
+#  - platform: template
+#    id: sys_esp_temperature
+#    name: ESP Temperature
+#    lambda: return temperatureRead();
+#    unit_of_measurement: "°C"
+#    state_class: measurement
+#    device_class: TEMPERATURE
+#    update_interval: 60s
+#    entity_category: "diagnostic"
+
+  - platform: internal_temperature
+    name: ESP Temperature   
     unit_of_measurement: "°C"
-    state_class: measurement
-    device_class: TEMPERATURE
-    update_interval: 60s
     entity_category: "diagnostic"
+
+
     #Device RSSI
   - platform: wifi_signal
     name: RSSI
