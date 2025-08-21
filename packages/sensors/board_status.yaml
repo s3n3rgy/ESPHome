@@ -35,6 +35,7 @@ sensor:
     name: ESP Temperature
     lambda: return temperatureRead();
     unit_of_measurement: "°C"
+    state_class: measurement
     device_class: TEMPERATURE
     update_interval: 60s
     entity_category: "diagnostic"
