@@ -36,8 +36,8 @@ sensor:
         - median
 
 text_sensor:
-  - platform: ${bme680_id}
-    bme680_bsec_id: bme680_study
+  - platform: bme680_bsec
+    bme680_bsec_id: ${bme680_id}
     iaq_accuracy: # IAQ accuracy as a text value of Stabilizing, Uncertain, Calibrating, Calibrated
       name: "IAQ Accuracy"
 
