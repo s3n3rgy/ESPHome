@@ -1,11 +1,14 @@
 esphome:
   name: esphome-web-45da20
   friendly_name: Ensuite Presence
+  comment: Presence sensor for Ensuite
   min_version: 2025.5.0
   name_add_mac_suffix: false
 
 esp32:
   board: esp32dev
+  framework:
+    type: arduino
 
 substitutions:
   device_id: ensuite-presence
@@ -24,7 +27,8 @@ substitutions:
   i2c_sda_pin: GPIO21 
   i2c_scl_pin: GPIO22
 #  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
-  bme680_address: "0x77" #Address of BME680 Temp Sensor.
+  bme680_address: "0x76" #Address of BME680 Temp Sensor.
+  bme680_id: "bme680_ensuite" #used with BME680_bsec 
   vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
   pir_gpio: "GPIO13"  #PIR, AM312, SR602 motion sensor connected to
 
@@ -48,7 +52,8 @@ packages:
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
 #      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
-      - packages/component/bme680_temp.yaml  #include if connecting the BMP680 Temp and pressure Sensor
+#      - packages/component/bme680_temp.yaml  #include if connecting the BMP680 Temp and pressure Sensor
+      - packages/component/bme680_bsec.yaml  #include if connecting the BMP680 Temp, pressure, co2, gas
       - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
       - packages/component/am312_pir.yaml #PIR, AM312, SR602 motion sensor connected to
       - packages/component/ld2410_radar.yaml #LD2410 Radar
