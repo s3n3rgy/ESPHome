@@ -12,6 +12,7 @@ uart:
     baud_rate: 256000
     parity: NONE
     stop_bits: 1
+    clock_source: APB  # Use APB clock for accurate baud rates
 
 # Testing multiple UARTS
 #uart:
