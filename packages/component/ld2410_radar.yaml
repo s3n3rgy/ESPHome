@@ -12,15 +12,8 @@ uart:
     baud_rate: 256000
     parity: NONE
     stop_bits: 1
-    clock_source: APB  # Use APB clock for accurate baud rates
 
-# Testing multiple UARTS
-#uart:
-#  tx_pin: ${uart_tx2}
-#  rx_pin: ${uart_rx2}
-#  baud_rate: 256000
-#  parity: NONE
-#  stop_bits: 1
+
 
 #bluetooth (not sure how it works yet)
 #esp32_ble_tracker:
@@ -29,8 +22,6 @@ uart:
 #    window: 1100ms
 #    active: true
 
-#bluetooth_proxy:
-#  active: true
   
 #Configuration entities
 number:
