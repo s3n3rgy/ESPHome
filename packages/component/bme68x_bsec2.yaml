@@ -11,7 +11,7 @@ bme68x_bsec2_i2c:
   
 sensor:
   - platform: bme68x_bsec2
-    bme680_bsec_id: ${bme680_id}
+    bme68x_bsec2_id: ${bme680_id}
     temperature:
       name: "Temperature"
       filters:
