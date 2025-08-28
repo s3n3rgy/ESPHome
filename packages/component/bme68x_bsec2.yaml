@@ -40,7 +40,7 @@ sensor:
 
 text_sensor:
   - platform: bme68x_bsec2
-    bme680_bsec_id: ${bme680_id}
+    bme68x_bsec2_id: ${bme680_id}
     iaq_accuracy: # IAQ accuracy as a text value of Stabilizing, Uncertain, Calibrating, Calibrated
       name: "IAQ Accuracy"
 
