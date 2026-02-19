@@ -10,7 +10,7 @@ bme68x_bsec2_i2c:
   i2c_id: bus_a
   
 sensor:
-  - platform: bme68x_bsec2
+  - platform: bme68x_bsec2_i2c
     bme68x_bsec2_id: ${bme680_id}
     temperature:
       name: "Temperature"
@@ -39,7 +39,7 @@ sensor:
         - median
 
 text_sensor:
-  - platform: bme68x_bsec2
+  - platform: bme68x_bsec2_i2c
     bme68x_bsec2_id: ${bme680_id}
     iaq_accuracy: # IAQ accuracy as a text value of Stabilizing, Uncertain, Calibrating, Calibrated
       name: "IAQ Accuracy"
