@@ -1,12 +1,20 @@
+##LD2410 Motion and Presence Sensor
+# https://esphome.io/components/sensor/ld2410
+
 ld2410:
   id: ld2410_radar
+  uart_id: uart_2
   
 uart:
-  tx_pin: ${uart_tx2}
-  rx_pin: ${uart_rx2}
-  baud_rate: 256000
-  parity: NONE
-  stop_bits: 1
+  - id: uart_2
+    tx_pin: ${uart_tx2}
+    rx_pin: ${uart_rx2}
+    baud_rate: 256000
+    parity: NONE
+    stop_bits: 1
+
+
+
 
 #bluetooth (not sure how it works yet)
 #esp32_ble_tracker:
@@ -15,8 +23,6 @@ uart:
 #    window: 1100ms
 #    active: true
 
-#bluetooth_proxy:
-#  active: true
   
 #Configuration entities
 number:
@@ -166,6 +172,8 @@ binary_sensor:
 #Exposes configuration and status sensors     
 sensor:
   - platform: ld2410
+    light:
+      name: Light ##Only works in Engineering mode. 0-255
     moving_distance:
       name: Radar Moving Distance
       id: moving_distance
