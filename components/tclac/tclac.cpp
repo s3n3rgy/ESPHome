@@ -15,9 +15,12 @@ namespace tclac{
 ClimateTraits tclacClimate::traits() {
 	auto traits = climate::ClimateTraits();
 
-	traits.set_supports_action(false);
-	traits.set_supports_current_temperature(true);
-	traits.set_supports_two_point_target_temperature(false);
+
+	//traits.set_supports_action(false);
+	//traits.set_supports_current_temperature(true);
+	//traits.set_supports_two_point_target_temperature(false);
+
+	traits.add_feature_flags(climate::CLIMATE_SUPPORTS_CURRENT_TEMPERATURE); // Previous methods are disabled, now you must use add_feature_flags
 
 	traits.set_supported_modes(this->supported_modes_);
 	traits.set_supported_presets(this->supported_presets_);
@@ -687,7 +690,7 @@ void tclacClimate::set_vertical_swing_direction(VerticalSwingDirection direction
 	}
 }
 // Getting available air conditioner operating modes
-void tclacClimate::set_supported_modes(const std::set<climate::ClimateMode> &modes) {
+void tclacClimate::set_supported_modes(climate::ClimateModeMask modes) {
 	this->supported_modes_ = modes;
 }
 // Getting the swing mode of horizontal flaps
@@ -700,17 +703,18 @@ void tclacClimate::set_horizontal_swing_direction(HorizontalSwingDirection direc
 	}
 }
 // Getting available fan speeds
-void tclacClimate::set_supported_fan_modes(const std::set<climate::ClimateFanMode> &modes){
+void tclacClimate::set_supported_fan_modes(climate::ClimateFanModeMask modes){
 	this->supported_fan_modes_ = modes;
 }
 // Getting available damper swing modes
-void tclacClimate::set_supported_swing_modes(const std::set<climate::ClimateSwingMode> &modes) {
+void tclacClimate::set_supported_swing_modes(climate::ClimateSwingModeMask modes) {
 	this->supported_swing_modes_ = modes;
 }
 // Getting Available Presets
-void tclacClimate::set_supported_presets(const std::set<climate::ClimatePreset> &presets) {
+void tclacClimate::set_supported_presets(climate::ClimatePresetMask presets) {
   this->supported_presets_ = presets;
 }
+
 
 }
 }
