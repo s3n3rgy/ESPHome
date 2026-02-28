@@ -19,11 +19,11 @@ substitutions:
   wifi_ssid: !secret wifi_ssid
   wifi_password: !secret wifi_password 
   log_level: warn                       #debug info warn error NONE, NONE for TCL Aircon
-  log_baud_rate: "0"                    #11520 is default, 0 for none for TCL Aircon
+  log_baud_rate: "11520"                    #11520 is default, 0 for none for TCL Aircon
 
   #Device Specific
-  device_name: esphome_web_33233c       #UPDATE per device
-  device_id: workbench-presence                #UPDATE per device, Used for SSID
+  device_name: esphome-web-45e6ec       #UPDATE per device
+  device_id: study-presence                #UPDATE per device, Used for SSID
   humanly_name: Study Presence V3              #UPDATE per device
 
   #Protocols based on the components
