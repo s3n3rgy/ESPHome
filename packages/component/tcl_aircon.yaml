@@ -87,30 +87,17 @@ esphome:
           id(${device_name}climate).set_force_mode_state(false);
         }
 
-uart:
-  baud_rate: 9600
-  data_bits: 8
-  parity: EVEN
-  stop_bits: 1
-  rx_pin: ${uart_rx}
-  tx_pin: ${uart_tx}
+#uart:
+#  baud_rate: 9600
+#  data_bits: 8
+#  parity: EVEN
+#  stop_bits: 1
+#  rx_pin: ${uart_rx}
+#  tx_pin: ${uart_tx}
 
 api:
   encryption:
     key: "${api_key}"
-
-#Commented out until I know how it works
-#ota:
-#- platform: esphome
-#  password: "${ota_pass}"
-
-#wifi:
-#  id: "${device_name}_wifi"
-#  ssid: ${wifi_ssid}
-#  password: ${wifi_password}
-#  ap:
-#    ssid: "${device_name} Fallback Hotspot"
-#    password: "${recovery_pass}"
 
 captive_portal:
 
