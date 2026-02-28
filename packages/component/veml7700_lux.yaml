@@ -1,6 +1,5 @@
 #for VENL700 Light sensor
 #include packages/protocol/i2c.yaml
-#framework: type: arduino (not esp-idf compatible)
 #defaul address 0x10
 
 sensor:
