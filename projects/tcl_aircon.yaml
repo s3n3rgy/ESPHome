@@ -16,9 +16,11 @@ substitutions:
   uart_rx: GPIO1 #used for Aircon/uart_logger
   uart_tx: GPIO3 #used for Aircon/uart_logger
   uart1_baud: 0 #11520 is default, 0 for TCL Aircon
+  uart1_parity: EVEN #None is default, EVEN for TCL
   uart_rx2: GPIO16 #Used for LD2410 Radar
   uart_tx2: GPIO17 #Used for LD2410 Radar
   uart2_baud: 11520 #11520 is default
+  uart2_parity: NONE #None is default, EVEN for TCL
   receive_led: GPIO2
   transmit_led: GPIO2
   i2c_sda_pin: GPIO21 
