@@ -1,5 +1,3 @@
-##DO NOT UPGRADE FROM 2025.5.2##
-
 esphome:
   name: esphome-web-33233c
   friendly_name: TCL Aircon
@@ -8,21 +6,21 @@ esphome:
 
 esp32:
   board: esp32dev
-  framework: Arduino #(default) - required by tclac external component, do NOT change to esp-idf
+#  framework: Arduino (default) - required by tclac external component, do NOT change to esp-idf
 substitutions:
   device_name: esphome_web_33233c
   device_id: tcl_aircon
   humanly_name: TCL Aircon
-  uart_rx: GPIO1 #used for Aircon/uart_logger
-  uart_tx: GPIO3 #used for Aircon/uart_logger
-  uart1_baud: 0 #11520 is default, 0 for TCL Aircon
-  uart1_parity: EVEN #None is default, EVEN for TCL
-  uart_rx2: GPIO16 #Used for LD2410 Radar
-  uart_tx2: GPIO17 #Used for LD2410 Radar
-  uart2_baud: 11520 #11520 is default
-  uart2_parity: NONE #None is default, EVEN for TCL
-  receive_led: GPIO2
-  transmit_led: GPIO2
+  uart_rx: GPIO1            #used for Aircon/uart_logger
+  uart_tx: GPIO3            #used for Aircon/uart_logger
+  uart1_baud: 0             #11520 is default, 0 for TCL Aircon
+  uart1_parity: EVEN        #None is default, EVEN for TCL
+  uart_rx2: GPIO16          #Used for LD2410 Radar
+  uart_tx2: GPIO17          #Used for LD2410 Radar
+  uart2_baud: 11520         #11520 is default
+  uart2_parity: NONE        #None is default, EVEN for TCL
+  receive_led: GPIO2        #For TCL Aircon
+  transmit_led: GPIO2       #For TCL Aircon
   i2c_sda_pin: GPIO21 
   i2c_scl_pin: GPIO22
   vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
@@ -54,6 +52,7 @@ packages:
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
       - packages/protocol/uart.yaml
+#      - packages/protocol/uart2_only.yaml    #include when only Uart2 is used 
       - packages/component/tcl_aircon.yaml
       - packages/component/ld2410_radar.yaml #LD2410 Radar
       - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
