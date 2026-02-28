@@ -1,0 +1,61 @@
+esphome:
+  name: esphome-web-462710
+  friendly_name: Workbench Presence
+  comment: Presence sensor for work bench in Garage
+  min_version: 2025.5.0
+  name_add_mac_suffix: false
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+     
+substitutions:
+  device_id: workbench-presence  #used for SSID
+  pwd: !secret pwd
+  web_server_port: "80"
+  wifi_ssid: !secret wifi_ssid
+  wifi_password: !secret wifi_password
+  api_key: !secret api_key
+  log_level: debug  #debug info warn error none, none for TCL Aircon
+  log_baud_rate: "115200"  #11520 is default, 0 for none for TCL Aircon
+  time_platform: "homeassistant"
+#  uart_rx: GPIO1 #used for Aircon/uart_logger
+#  uart_tx: GPIO3 #used for Aircon/uart_logger
+  uart_rx2: GPIO16 #Used for LD2410 Radar
+  uart_tx2: GPIO17 #Used for LD2410 Radar
+  i2c_sda_pin: GPIO21 
+  i2c_scl_pin: GPIO22
+#  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
+  bme680_address: "0x76" #Address of BME680 Temp Sensor.
+  bme680_id: "bme680_workbench" #used with BME680_bsec
+  vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
+  pir_gpio: "GPIO13"  #PIR, AM312, SR602 motion sensor connected to
+
+#git repo
+packages:
+  remote_package_files:
+    url: https://github.com/s3n3rgy/ESPHome.git
+    ref: main
+    refresh: always
+    files: 
+      - packages/ota/ota.yaml
+      - packages/web/web_server.yaml
+      - packages/api/api.yaml
+      - packages/sensors/board_status.yaml
+      - packages/binary_sensor/status.yaml
+      - packages/wifi/wifi_dhcp.yaml
+      - packages/logger/logger.yaml
+      - packages/text_sensor/version.yaml
+      - packages/text_sensor/wifi_info.yaml
+      - packages/button/restart.yaml
+      - packages/time/time.yaml
+      - packages/protocol/i2c.yaml  #include when using any i2c sensors
+#      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
+#      - packages/component/bme680_temp.yaml  #include if connecting the BMP680 Temp and pressure Sensor
+#      - packages/component/bme680_bsec.yaml  #include if connecting the BMP680_bsec, temp, pressure, vox, co2..  
+      - packages/component/bme68x_bsec2.yaml  #include if connecting the BMP68x_bsec2_i2c, temp, pressure, vox, co2..   
+      - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
+      - packages/component/am312_pir.yaml #PIR, AM312, SR602 motion sensor connected to
+      - packages/component/ld2410_radar.yaml #LD2410 Radar
+#      - packages/component/tcl_aircon.yaml  #include if connecting to TCL Aircon
