@@ -1,11 +1,11 @@
 #https://esphome.io/components/sensor/bme680_bsec.html
 #include packages/protocol/i2c.yaml
 bme680_bsec:
-  - id: ${bme680_id}
-  - address: ${bme680_address}
-  - temperature_offset: 0
-  - sample_rate: lp #lp=3s, ulp=5min
-  - i2c_id: bus_a
+   id: ${bme680_id}
+   address: ${bme680_address}
+   temperature_offset: 0
+   sample_rate: lp #lp=3s, ulp=5min
+   i2c_id: bus_a
 sensor:
   - platform: bme680_bsec
     bme680_bsec_id: ${bme680_id}
