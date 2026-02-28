@@ -1,7 +1,7 @@
 #BMP580 Temp and pressure sensor, use bmp581 platform
 #include packages/protocol/i2c.yaml
 sensor:
-  - platform: bmp581
+  - platform: bmp581_i2c
     i2c_id: bus_a
     temperature:
       name: "Temperature"
