@@ -96,11 +96,11 @@ esphome:
 #  rx_pin: ${uart_rx}
 #  tx_pin: ${uart_tx}
 
-api:
-  encryption:
-    key: "${api_key}"
+#api:
+#  encryption:
+#    key: "${api_key}"
 
-captive_portal:
+#captive_portal:
 
 
 # MANDATORY disable logging via UART
