@@ -87,7 +87,6 @@ esphome:
           id(${device_name}climate).set_force_mode_state(false);
         }
 
-uart_id: uart_1
 
 #uart:
 #  baud_rate: 9600
@@ -292,3 +291,4 @@ climate:
   - platform: tclac
     name: "${device_name} Climate"
     id: ${device_name}climate
+    uart_id: uart_1
