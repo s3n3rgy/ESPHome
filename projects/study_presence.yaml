@@ -22,10 +22,8 @@ substitutions:
   time_platform: "homeassistant"
 #  uart_rx: GPIO1 #used for Aircon/uart_logger
 #  uart_tx: GPIO3 #used for Aircon/uart_logger
-#  uart1_baud: 0 #11520 is default, 0 for TCL Aircon
   uart_rx2: GPIO16 #Used for LD2410 Radar
   uart_tx2: GPIO17 #Used for LD2410 Radar
-  uart2_baud: 11520 #11520 is default
   i2c_sda_pin: GPIO21 
   i2c_scl_pin: GPIO22
 #  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
