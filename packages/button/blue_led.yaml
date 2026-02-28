@@ -1,0 +1,9 @@
+#Onboard LED
+switch:
+  - platform: gpio
+    id: blue_led
+    pin:
+      number: GPIO2
+      mode: OUTPUT
+    name: "Blue LED"  
+    restore_mode: ALWAYS_OFF
