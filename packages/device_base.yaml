@@ -1,58 +1,83 @@
 ###Cut and paste into new project ##
 ##update name, friendly name, and uncomment required components##
-
 esphome:
-  name: esphome-web-45da20  #UPDATE
-  friendly_name: Ensuite Presence  #UPDATE
+  name: esphome-web-33233c
+  friendly_name: TCL Aircon
+  comment: Presence and Aircon for Bedroom
   min_version: 2025.5.0
   name_add_mac_suffix: false
 
 esp32:
   board: esp32dev
+  framework:
+    type: esp-idf      #arduino for TCL Aircon
 
 substitutions:
-  device_id: ensuite-presence
+  #Always Include
+  time_platform: "homeassistant"
   pwd: !secret pwd
   web_server_port: "80"
-  wifi_ssid: !secret wifi_ssid
-  wifi_password: !secret wifi_password
   api_key: !secret api_key
-  log_level: debug  #debug info warn error none, none for TCL Aircon
-  log_baud_rate: "115200"  #11520 is default, 0 for none for TCL Aircon
-  time_platform: "homeassistant"
-#  uart_rx: GPIO1 #used for Aircon/uart_logger
-#  uart_tx: GPIO3 #used for Aircon/uart_logger
-#  uart_rx2: GPIO16 #Used for LD2410 Radar
-#  uart_tx2: GPIO17 #Used for LD2410 Radar
-#  i2c_sda_pin: GPIO21 
-#  i2c_scl_pin: GPIO22
-#  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
-#  bme680_address: "0x77" #Address of BME680 Temp Sensor.
-#  vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
-#  pir_gpio: "GPIO13"  #AM312 PIR motion sensor connected to
+  wifi_ssid: !secret wifi_ssid
+  wifi_password: !secret wifi_password 
+  log_level: warn                       #debug info warn error NONE, NONE for TCL Aircon
+  log_baud_rate: "0"                    #11520 is default, 0 for none for TCL Aircon
+  
+  #Device Specific
+  device_name: esphome_web_33233c       #UPDATE per device
+  device_id: tcl_aircon                 #UPDATE per device, Used for SSID
+  humanly_name: TCL Aircon              #UPDATE per device
 
-#git repo
+  #Protocols based on the components
+  uart1_rx: GPIO1                     #used for Aircon/uart_logger
+  uart1_tx: GPIO3                     #used for Aircon/uart_logger
+  uart1_baud: 9600                    #11520 is default, 0 for TCL Aircon
+  uart1_parity: EVEN                  #default is NONE, EVEN for TCL Aircon
+
+  uart2_rx: GPIO16                    #Used for LD2410 Radar
+  uart2_tx: GPIO17                    #Used for LD2410 Radar
+  uart2_baud: 256000                  #11520 is default
+  uart2_parity: NONE                  #default is NONE
+ 
+  i2c_sda_pin: GPIO21 
+  i2c_scl_pin: GPIO22
+ 
+  #Component Addresses
+  vmel7700_address: "0x10"              #Address of VMEL7700 Light Sensor
+  bme680_address: "0x76"                #Address of BME680 Temp Sensor.
+  bme680_id: "bme680_ensuite"           #used with BME680_bsec 
+  vmel7700_address: "0x10"              #Address of VMEL7700 Light Sensor
+  pir_gpio: "GPIO13"                    #PIR, AM312, SR602 motion sensor connected
+  
+  receive_led: GPIO2                  #Used for TCL Aircon
+  transmit_led: GPIO2                 #Used for TCL Aircon
+
+
 packages:
-  remote_package_files:
+  remote_package:
     url: https://github.com/s3n3rgy/ESPHome.git
-    ref: main
+    ref: Dev
     refresh: always
-    files: 
+    files:
       - packages/ota/ota.yaml
       - packages/web/web_server.yaml
       - packages/api/api.yaml
       - packages/sensors/board_status.yaml
       - packages/binary_sensor/status.yaml
       - packages/wifi/wifi_dhcp.yaml
-      - packages/logger/logger.yaml
+      - packages/logger/logger.yaml         #remove for TCL Aircon
       - packages/text_sensor/version.yaml
       - packages/text_sensor/wifi_info.yaml
       - packages/button/restart.yaml
+      - packages/button/blue_led.yaml       #turns on the Blue LED
       - packages/time/time.yaml
-#      - packages/protocol/i2c.yaml  #include when using any i2c sensors
-#      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
-#      - packages/component/bme680_temp.yaml  #include if connecting the BMP680 Temp and pressure Sensor
-#      - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
-#      - packages/component/am312_pir.yaml #include with PIR Sensors
-#      - packages/component/ld2410_radar.yaml #LD2410 Radar
-#      - packages/component/tcl_aircon.yaml  #include if connecting to TCL Aircon
+      - packages/protocol/i2c.yaml          #include when using any i2c sensors
+      - packages/protocol/uart.yaml
+      - packages/protocol/uart2_only.yaml    #include when only Uart2 is used       
+      - packages/component/tcl_aircon.yaml
+      - packages/component/ld2410_radar.yaml    #LD2410 Radar
+      - packages/component/veml7700_lux.yaml     #include if connecting to VEML7700 Light Sensor
+      - packages/component/am312_pir.yaml       #PIR, AM312, SR602 motion sensor connected
+      - packages/component/bmp580_temp.yaml     #include if connecting the BMP580 Temp and pressure Sensor
+      - packages/component/bme680_temp.yaml     #include if connecting the BMP680 Temp and pressure Sensor      
+      - packages/component/bme68x_bsec2.yaml     #include if connecting the BMP68x_bsec2_i2c, temp, pressure, vox, co2.. 

@@ -5,13 +5,13 @@ ld2410:
   id: ld2410_radar
   uart_id: uart_2
   
-uart:
-  - id: uart_2
-    tx_pin: ${uart_tx2}
-    rx_pin: ${uart_rx2}
-    baud_rate: 256000
-    parity: NONE
-    stop_bits: 1
+#uart:
+#  - id: uart_2
+#    tx_pin: ${uart_tx2}
+#    rx_pin: ${uart_rx2}
+#    baud_rate: 256000
+#    parity: NONE
+#    stop_bits: 1
 
 
 

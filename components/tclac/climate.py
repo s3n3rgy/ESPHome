@@ -144,9 +144,9 @@ def validate_visual(config):
 # Check the component configuration and accept default values
 CONFIG_SCHEMA = cv.All(
      climate.climate_schema(tclacClimate)
-     .extend(    
+     .extend(
         {
-            cv.GenerateID(): cv.declare_id(tclacClimate),
+
             cv.Optional(CONF_BEEPER, default=True): cv.boolean,
             cv.Optional(CONF_DISPLAY, default=True): cv.boolean,
             cv.Optional(CONF_RX_LED): pins.gpio_output_pin_schema,

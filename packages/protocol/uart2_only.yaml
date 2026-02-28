@@ -1,0 +1,9 @@
+# packages/protocol/uart2.yaml
+# For devices using only uart_2 (e.g. LD2410 radar, no aircon)
+uart:
+  - id: uart_2
+    tx_pin: ${uart2_tx}
+    rx_pin: ${uart2_rx}
+    baud_rate: 256000
+    parity: NONE
+    stop_bits: 1

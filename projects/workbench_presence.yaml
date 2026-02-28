@@ -1,7 +1,7 @@
 esphome:
-  name: esphome-web-45e6ec
-  friendly_name: Study Presence V3
-  comment: Presence sensor for Study
+  name: esphome-web-462710
+  friendly_name: Workbench Presence
+  comment: Presence sensor for work bench in Garage
   min_version: 2025.5.0
   name_add_mac_suffix: false
 
@@ -9,7 +9,8 @@ esp32:
   board: esp32dev
   framework:
     type: esp-idf
-
+    
+    
 substitutions:
   #Always Include
   time_platform: "homeassistant"
@@ -22,11 +23,11 @@ substitutions:
   log_baud_rate: "11520"                    #11520 is default, 0 for none for TCL Aircon
 
   #Device Specific
-  device_name: esphome-web-45e6ec       #UPDATE per device
-  device_id: study-presence                #UPDATE per device, Used for SSID
-  humanly_name: Study Presence V3              #UPDATE per device
+  device_name: esphome-web-462710       #UPDATE per device
+  device_id: workbench-presence                #UPDATE per device, Used for SSID
+  humanly_name: Workbench Presence              #UPDATE per device
 
-  #Protocols based on the components
+ #Protocols based on the components
   uart2_rx: GPIO16                    #Used for LD2410 Radar
   uart2_tx: GPIO17                    #Used for LD2410 Radar
   uart2_baud: 256000                  #11520 is default
@@ -37,13 +38,13 @@ substitutions:
  
   #Component Addresses
   bme680_address: "0x76" #Address of BME680 Temp Sensor.
-  bme680_id: "bme680_study" #used with BME680_bsec
+  bme680_id: "bme680_workbench" #used with BME680_bsec
   vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
   pir_gpio: "GPIO13"  #PIR, AM312, SR602 motion sensor connected to
 
 #git repo
 packages:
-  remote_package:
+  remote_package_files:
     url: https://github.com/s3n3rgy/ESPHome.git
     ref: Dev
     refresh: always
@@ -60,9 +61,8 @@ packages:
       - packages/button/restart.yaml
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
-      - packages/protocol/uart2_only.yaml    #include when only Uart2 is used    
+      - packages/protocol/uart2_only.yaml    #include when only Uart2 is used 
       - packages/component/bme68x_bsec2.yaml  #include if connecting the BMP68x_bsec2_i2c, temp, pressure, vox, co2..   
       - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
       - packages/component/am312_pir.yaml #PIR, AM312, SR602 motion sensor connected to
       - packages/component/ld2410_radar.yaml #LD2410 Radar
-#      - packages/component/tcl_aircon.yaml  #include if connecting to TCL Aircon

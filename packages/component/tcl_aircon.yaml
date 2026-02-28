@@ -4,15 +4,12 @@ external_components:
   - source:
       url: https://github.com/s3n3rgy/ESPHome.git
       type: git
-      ref: main
+      ref: Dev
     components: [ tclac ]
     refresh: 30s
 
 # Climate ESPHome
 esphome:
-  name: ${device_name}
-  min_version: 2023.3.0
-  friendly_name: ${humanly_name}
   on_boot:
     priority: -100
     then:
@@ -95,33 +92,20 @@ esphome:
 #  rx_pin: ${uart_rx}
 #  tx_pin: ${uart_tx}
 
-uart:
-  - id: uart_1
-    baud_rate: 9600
-    data_bits: 8
-    parity: EVEN
-    stop_bits: 1
-    rx_pin: ${uart_rx}
-    tx_pin: ${uart_tx}
 
-api:
-  encryption:
-    key: "${api_key}"
+#uart:
+#  baud_rate: 9600
+#  data_bits: 8
+#  parity: EVEN
+#  stop_bits: 1
+#  rx_pin: ${uart_rx}
+#  tx_pin: ${uart_tx}
 
-#Commented out until I know how it works
-#ota:
-#- platform: esphome
-#  password: "${ota_pass}"
+#api:
+#  encryption:
+#    key: "${api_key}"
 
-#wifi:
-#  id: "${device_name}_wifi"
-#  ssid: ${wifi_ssid}
-#  password: ${wifi_password}
-#  ap:
-#    ssid: "${device_name} Fallback Hotspot"
-#    password: "${recovery_pass}"
-
-captive_portal:
+#captive_portal:
 
 
 # MANDATORY disable logging via UART
