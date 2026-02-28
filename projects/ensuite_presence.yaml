@@ -20,10 +20,10 @@ substitutions:
   log_level: debug  #debug info warn error none, none for TCL Aircon
   log_baud_rate: "115200"  #11520 is default, 0 for none for TCL Aircon
   time_platform: "homeassistant"
-#  uart_rx: GPIO1 #used for Aircon/uart_logger
-#  uart_tx: GPIO3 #used for Aircon/uart_logger
-  uart_rx2: GPIO16 #Used for LD2410 Radar
-  uart_tx2: GPIO17 #Used for LD2410 Radar
+#  uart1_rx: GPIO1 #used for Aircon/uart_logger
+#  uart1_tx: GPIO3 #used for Aircon/uart_logger
+  uart2_rx: GPIO16 #Used for LD2410 Radar
+  uart2_tx: GPIO17 #Used for LD2410 Radar
   i2c_sda_pin: GPIO21 
   i2c_scl_pin: GPIO22
 #  bmp580_address: "0x47" #Address of BMP580 Temp Sensor.
@@ -51,6 +51,8 @@ packages:
       - packages/button/restart.yaml
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
+#      - packages/protocol/uart.yaml #include when using both uarts, i.e. TCL Aircon and Presence
+      - packages/protocol/uart2_only.yaml 
 #      - packages/component/bmp580_temp.yaml  #include if connecting the BMP580 Temp and pressure Sensor
 #      - packages/component/bme680_temp.yaml  #include if connecting the BMP680 Temp and pressure Sensor
       - packages/component/bme680_bsec.yaml  #include if connecting the BMP680 Temp, pressure, co2, gas
