@@ -15,8 +15,10 @@ substitutions:
   humanly_name: TCL Aircon
   uart_rx: GPIO1 #used for Aircon/uart_logger
   uart_tx: GPIO3 #used for Aircon/uart_logger
-  uart_rx2: GPIO16 #used for Presence Sensor
-  uart_tx2: GPIO17 #used for Presence Sensor
+  uart1_baud: 0 #11520 is default, 0 for TCL Aircon
+  uart_rx2: GPIO16 #Used for LD2410 Radar
+  uart_tx2: GPIO17 #Used for LD2410 Radar
+  uart2_baud: 11520 #11520 is default
   receive_led: GPIO2
   transmit_led: GPIO2
   i2c_sda_pin: GPIO21 
@@ -34,7 +36,7 @@ substitutions:
 packages:
   remote_package:
     url: https://github.com/s3n3rgy/ESPHome.git
-    ref: main
+    ref: Dev
     refresh: always
     files:
       - packages/ota/ota.yaml
@@ -49,6 +51,7 @@ packages:
       - packages/button/restart.yaml
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
+      - packages/protocol/uart.yaml
       - packages/component/tcl_aircon.yaml
       - packages/component/ld2410_radar.yaml #LD2410 Radar
       - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
