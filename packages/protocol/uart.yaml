@@ -3,16 +3,16 @@
 # uart_2: Presence Sensor LD2410 typically GPIO16 & GPIO17
 
 uart:
-  - id: uart_1
+  - id: uart_1  #usually used by Logger
     tx_pin: ${uart_tx}
     rx_pin: ${uart_rx}
-    baud_rate: 115200
+    baud_rate: ${uart1_baud}  #11520 is default. 0 for TCL Aircon
     parity: NONE
     stop_bits: 1
 
   - id: uart_2
     tx_pin: ${uart_tx2}
     rx_pin: ${uart_rx2}
-    baud_rate: 256000
+    baud_rate: ${uart2_baud}  #11520 is default
     parity: NONE
     stop_bits: 1
