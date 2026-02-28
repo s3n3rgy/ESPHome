@@ -4,15 +4,15 @@
 
 uart:
   - id: uart_1  #usually used by Logger
-    tx_pin: ${uart_tx}
-    rx_pin: ${uart_rx}
+    tx_pin: ${uart1_tx}
+    rx_pin: ${uart1_rx}
     baud_rate: ${uart1_baud}  #11520 is default. 0 for TCL Aircon
     parity: ${uart1_parity} #default is NONE, EVEN for TCL Aircon
     stop_bits: 1
 
   - id: uart_2
-    tx_pin: ${uart_tx2}
-    rx_pin: ${uart_rx2}
+    tx_pin: ${uart2_tx}
+    rx_pin: ${uart2_rx}
     baud_rate: ${uart2_baud}  #11520 is default
     parity: ${uart2_parity} #default is NONE, EVEN for TCL Aircon
     stop_bits: 1
