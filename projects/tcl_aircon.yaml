@@ -6,26 +6,30 @@ esphome:
 
 esp32:
   board: esp32dev
-#  framework: Arduino (default) - required by tclac external component, do NOT change to esp-idf
+  framework:
+    type: arduino
+
 substitutions:
   device_name: esphome_web_33233c
   device_id: tcl_aircon
   humanly_name: TCL Aircon
-  uart_rx: GPIO1            #used for Aircon/uart_logger
-  uart_tx: GPIO3            #used for Aircon/uart_logger
-  uart1_baud: 0             #11520 is default, 0 for TCL Aircon
-  uart1_parity: EVEN        #None is default, EVEN for TCL
-  uart_rx2: GPIO16          #Used for LD2410 Radar
-  uart_tx2: GPIO17          #Used for LD2410 Radar
-  uart2_baud: 11520         #11520 is default
-  uart2_parity: NONE        #None is default, EVEN for TCL
-  receive_led: GPIO2        #For TCL Aircon
-  transmit_led: GPIO2       #For TCL Aircon
+  uart1_rx: GPIO1                     #used for Aircon/uart_logger
+  uart1_tx: GPIO3                     #used for Aircon/uart_logger
+  uart1_baud: 9600                    #11520 is default, 0 for TCL Aircon
+  uart1_parity: EVEN                  #default is NONE, EVEN for TCL Aircon
+
+  uart2_rx: GPIO16                    #Used for LD2410 Radar
+  uart2_tx: GPIO17                    #Used for LD2410 Radar
+  uart2_baud: 256000                  #11520 is default
+  uart2_parity: NONE                  #default is NONE
+ 
+  receive_led: GPIO2
+  transmit_led: GPIO2
   i2c_sda_pin: GPIO21 
   i2c_scl_pin: GPIO22
-  vmel7700_address: "0x10"  #Address of VMEL7700 Light Sensor
- # log_level: none  #debug info warn error none
- # log_baud_rate: "0"  #11520 is default, 0 for none
+  vmel7700_address: "0x10"            #Address of VMEL7700 Light Sensor
+ # log_level: none                    #debug info warn error none
+ # log_baud_rate: "0"                  #11520 is default, 0 for none
   time_platform: "homeassistant"
   pwd: !secret pwd
   web_server_port: "80"
@@ -34,7 +38,7 @@ substitutions:
   wifi_password: !secret wifi_password
 
 packages:
-  remote_package:
+  remote_package_dev:
     url: https://github.com/s3n3rgy/ESPHome.git
     ref: Dev
     refresh: always
@@ -52,7 +56,7 @@ packages:
       - packages/time/time.yaml
       - packages/protocol/i2c.yaml  #include when using any i2c sensors
       - packages/protocol/uart.yaml
-#      - packages/protocol/uart2_only.yaml    #include when only Uart2 is used 
+#      - packages/protocol/uart2_only.yaml    #include when only Uart2 is used       
       - packages/component/tcl_aircon.yaml
       - packages/component/ld2410_radar.yaml #LD2410 Radar
       - packages/component/veml7700_lux.yaml  #include if connecting to VEML7700 Light Sensor
