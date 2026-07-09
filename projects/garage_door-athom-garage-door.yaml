@@ -1,0 +1,23 @@
+substitutions:
+  name: athom-garage-door-9ce491
+  friendly_name: garage door
+packages:
+#  athom.garage-door: github://athom-tech/athom-configs/athom-garage-door.yaml
+  remote_package:
+    url: https://github.com/s3n3rgy/ESPHome.git
+    ref: main
+    refresh: always
+    files: 
+      - components/athom/garage-door.yaml
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+api:
+  encryption:
+    key: led6Yok46AK7kl7BCWeiO77jG24AJL8UL+UU/EaFwlM=
+
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
