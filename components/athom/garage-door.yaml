@@ -20,9 +20,9 @@ substitutions:
   # Set the duration between the sntp service polling ntp.org servers for an update
   sntp_update_interval: 6h
   # Network time servers for your region, enter from lowest to highest priority. To use local servers update as per zones or countries at: https://www.ntppool.org/zone/@
-  sntp_server_1: "0.pool.ntp.org"
-  sntp_server_2: "1.pool.ntp.org"
-  sntp_server_3: "2.pool.ntp.org"
+  sntp_server_1: "au.pool.ntp.org"
+  sntp_server_2: "au.pool.ntp.org"
+  sntp_server_3: "au.pool.ntp.org"
   # Enables faster network connections, with last connected SSID being connected to and no full scan for SSID being undertaken
   wifi_fast_connect: "false"
   # Define logging level: NONE, ERROR, WARN, INFO, DEBUG (Default), VERBOSE, VERY_VERBOSE
